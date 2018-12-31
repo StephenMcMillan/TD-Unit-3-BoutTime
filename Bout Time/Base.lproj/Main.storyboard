@@ -37,6 +37,9 @@
                                                 </constraints>
                                                 <state key="normal" image="down_full"/>
                                                 <state key="highlighted" image="down_full_selected"/>
+                                                <connections>
+                                                    <action selector="shiftItemPressed:" destination="BYZ-38-t0r" eventType="touchUpInside" id="PLE-3r-4BP"/>
+                                                </connections>
                                             </button>
                                         </subviews>
                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -201,6 +204,20 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
+                    <connections>
+                        <outlet property="firstPositionArrow" destination="Nff-41-nFL" id="SvG-Rz-uXb"/>
+                        <outlet property="firstPositionLabel" destination="cgY-uB-Wd0" id="l56-rD-N0Q"/>
+                        <outlet property="fourthPositionArrow" destination="WGy-n9-jgo" id="h3u-ga-xS3"/>
+                        <outlet property="fourthPositionLabel" destination="IX6-sy-39c" id="Pv9-bb-sch"/>
+                        <outlet property="promptLabel" destination="G6V-CT-DZI" id="dvk-e0-qUY"/>
+                        <outlet property="secondPositionDownArrow" destination="dba-HH-ybi" id="dQr-uR-5Qv"/>
+                        <outlet property="secondPositionLabel" destination="HXI-vM-vLZ" id="4gX-EL-moI"/>
+                        <outlet property="secondPositionUpArrow" destination="e84-bv-aor" id="ibk-3J-Vi7"/>
+                        <outlet property="thirdPositionDownArrow" destination="nJ9-VN-DG7" id="YXl-dl-fJJ"/>
+                        <outlet property="thirdPositionLabel" destination="vBt-PI-q5Y" id="Zv1-la-VVe"/>
+                        <outlet property="thirdPositionUpArrow" destination="BEb-KZ-3Lf" id="MKa-RI-wNH"/>
+                        <outlet property="timerLabel" destination="ZEs-gz-egL" id="V0o-yw-sEm"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>

@@ -12,6 +12,8 @@
 		696C27FE21D7AEA200820159 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 696C27FC21D7AEA200820159 /* Main.storyboard */; };
 		696C280021D7AEA500820159 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 696C27FF21D7AEA500820159 /* Assets.xcassets */; };
 		696C280321D7AEA500820159 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 696C280121D7AEA500820159 /* LaunchScreen.storyboard */; };
+		696C280B21DA178100820159 /* Event.swift in Sources */ = {isa = PBXBuildFile; fileRef = 696C280A21DA178100820159 /* Event.swift */; };
+		696C280E21DA22DF00820159 /* ChronoGameManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 696C280D21DA22DF00820159 /* ChronoGameManager.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -22,6 +24,8 @@
 		696C27FF21D7AEA500820159 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		696C280221D7AEA500820159 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		696C280421D7AEA500820159 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		696C280A21DA178100820159 /* Event.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Event.swift; sourceTree = "<group>"; };
+		696C280D21DA22DF00820159 /* ChronoGameManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChronoGameManager.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -56,12 +60,22 @@
 			children = (
 				696C27F821D7AEA200820159 /* AppDelegate.swift */,
 				696C27FA21D7AEA200820159 /* ViewController.swift */,
+				696C280C21DA17AD00820159 /* Model */,
 				696C27FC21D7AEA200820159 /* Main.storyboard */,
 				696C27FF21D7AEA500820159 /* Assets.xcassets */,
 				696C280121D7AEA500820159 /* LaunchScreen.storyboard */,
 				696C280421D7AEA500820159 /* Info.plist */,
+				696C280D21DA22DF00820159 /* ChronoGameManager.swift */,
 			);
 			path = "Bout Time";
+			sourceTree = "<group>";
+		};
+		696C280C21DA17AD00820159 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				696C280A21DA178100820159 /* Event.swift */,
+			);
+			path = Model;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -135,7 +149,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				696C280E21DA22DF00820159 /* ChronoGameManager.swift in Sources */,
 				696C27FB21D7AEA200820159 /* ViewController.swift in Sources */,
+				696C280B21DA178100820159 /* Event.swift in Sources */,
 				696C27F921D7AEA200820159 /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
