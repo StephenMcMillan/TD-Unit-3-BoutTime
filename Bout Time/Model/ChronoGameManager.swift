@@ -34,6 +34,11 @@ enum Direction {
     case up, down
 }
 
+enum EventPosition: Int{
+    case first = 0
+    case second, third, fourth
+}
+
 protocol ChronoGameManager {
     var score: Int { get set }
     var currentRound: Int { get set }
@@ -46,8 +51,8 @@ protocol ChronoGameManager {
     func nextRound() -> Bool
     
     /// Shifts the event up or down in the array
-    func shiftEvent(atIndex index: Int, inDirection direction: Direction)
-    func checkOrder(of round: [Event]) -> Bool
+    func shiftEvent(atPosition position: EventPosition, inDirection direction: Direction)
+    func checkOrder() -> Bool
 }
 
 // A Chronological Ordering game for Aviation Events in History
@@ -76,18 +81,34 @@ class AviationChronoGame: ChronoGameManager {
     func nextRound() -> Bool {
         currentRound += 1
     
-        guard currentRound <= maxRounds else { return false }
+        guard currentRound < maxRounds else { return false }
         
         eventsInPlay = rounds[currentRound]
         return true
     }
     
-    func shiftEvent(atIndex index: Int, inDirection direction: Direction) {
+    func shiftEvent(atPosition position: EventPosition, inDirection direction: Direction) {
         
+        // Using the 'swapAt' method to swap to items in the array. Essentially the caller provides the index of the item and a direction they wish to move it in the array. If they specify 'up' the item should move closer to the beginning of the array, otherwise it should move furthet to the end.
+        switch direction {
+            case .up: eventsInPlay.swapAt(position.rawValue, position.rawValue - 1)
+            case .down: eventsInPlay.swapAt(position.rawValue, position.rawValue + 1)
+        }
     }
     
-    func checkOrder(of round: [Event]) -> Bool {
-        return true
+    // Checks the order of the current array based on the dates of each event. Will return false if incorrect.
+    func checkOrder() -> Bool {
+        
+        // Checking the dates in order from most historic to most recent...
+        if eventsInPlay[0].year <= eventsInPlay[1].year &&
+           eventsInPlay[1].year <= eventsInPlay[2].year &&
+            eventsInPlay[2].year <= eventsInPlay[3].year {
+            
+            score += 1
+            return true
+        } else {
+            return false
+        }
     }
     
     
