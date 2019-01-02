@@ -43,6 +43,7 @@
                                             </button>
                                         </subviews>
                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <gestureRecognizers/>
                                         <constraints>
                                             <constraint firstItem="cgY-uB-Wd0" firstAttribute="centerY" secondItem="qI3-qa-Yme" secondAttribute="centerY" id="6j5-MR-7OL"/>
                                             <constraint firstAttribute="bottom" secondItem="Nff-41-nFL" secondAttribute="bottom" id="BFf-iz-Dtc"/>
@@ -56,6 +57,9 @@
                                                 <integer key="value" value="6"/>
                                             </userDefinedRuntimeAttribute>
                                         </userDefinedRuntimeAttributes>
+                                        <connections>
+                                            <outletCollection property="gestureRecognizers" destination="wRQ-z1-bTN" appends="YES" id="dbd-bb-sDE"/>
+                                        </connections>
                                     </view>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="3De-BH-kJT">
                                         <rect key="frame" x="0.0" y="177" width="382" height="166.5"/>
@@ -90,6 +94,7 @@
                                             </button>
                                         </subviews>
                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <gestureRecognizers/>
                                         <constraints>
                                             <constraint firstItem="HXI-vM-vLZ" firstAttribute="leading" secondItem="3De-BH-kJT" secondAttribute="leading" constant="16" id="23v-8v-k8i"/>
                                             <constraint firstAttribute="trailing" secondItem="dba-HH-ybi" secondAttribute="trailing" id="4De-h9-jaa"/>
@@ -106,6 +111,9 @@
                                                 <integer key="value" value="6"/>
                                             </userDefinedRuntimeAttribute>
                                         </userDefinedRuntimeAttributes>
+                                        <connections>
+                                            <outletCollection property="gestureRecognizers" destination="8br-fi-fK8" appends="YES" id="dJL-Ch-Uf8"/>
+                                        </connections>
                                     </view>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="oTD-b4-39o">
                                         <rect key="frame" x="0.0" y="353.5" width="382" height="167"/>
@@ -140,6 +148,7 @@
                                             </button>
                                         </subviews>
                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <gestureRecognizers/>
                                         <constraints>
                                             <constraint firstAttribute="trailing" secondItem="nJ9-VN-DG7" secondAttribute="trailing" id="JzY-mx-zvA"/>
                                             <constraint firstItem="BEb-KZ-3Lf" firstAttribute="width" secondItem="BEb-KZ-3Lf" secondAttribute="height" multiplier="158:229" id="MLW-Qz-KRM"/>
@@ -158,6 +167,9 @@
                                                 <integer key="value" value="6"/>
                                             </userDefinedRuntimeAttribute>
                                         </userDefinedRuntimeAttributes>
+                                        <connections>
+                                            <outletCollection property="gestureRecognizers" destination="75y-y4-pdo" appends="YES" id="cxV-iO-g4I"/>
+                                        </connections>
                                     </view>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ftP-es-8k1">
                                         <rect key="frame" x="0.0" y="530.5" width="382" height="166.5"/>
@@ -181,6 +193,7 @@
                                             </button>
                                         </subviews>
                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <gestureRecognizers/>
                                         <constraints>
                                             <constraint firstAttribute="bottom" secondItem="WGy-n9-jgo" secondAttribute="bottom" id="Ar8-tG-pvK"/>
                                             <constraint firstItem="WGy-n9-jgo" firstAttribute="width" secondItem="WGy-n9-jgo" secondAttribute="height" multiplier="158:457" id="dwh-RR-HFd"/>
@@ -195,6 +208,9 @@
                                                 <integer key="value" value="6"/>
                                             </userDefinedRuntimeAttribute>
                                         </userDefinedRuntimeAttributes>
+                                        <connections>
+                                            <outletCollection property="gestureRecognizers" destination="rUV-9o-56L" appends="YES" id="8XW-Ud-N9v"/>
+                                        </connections>
                                     </view>
                                 </subviews>
                             </stackView>
@@ -284,11 +300,92 @@
                         <outletCollection property="eventLabels" destination="HXI-vM-vLZ" collectionClass="NSMutableArray" id="W9x-7S-VP0"/>
                         <outletCollection property="eventLabels" destination="vBt-PI-q5Y" collectionClass="NSMutableArray" id="zh4-eO-jqi"/>
                         <outletCollection property="eventLabels" destination="IX6-sy-39c" collectionClass="NSMutableArray" id="fM3-7T-dTc"/>
+                        <outletCollection property="eventViews" destination="qI3-qa-Yme" collectionClass="NSMutableArray" id="0Yb-ki-Z0t"/>
+                        <outletCollection property="eventViews" destination="3De-BH-kJT" collectionClass="NSMutableArray" id="OdB-EF-WsT"/>
+                        <outletCollection property="eventViews" destination="oTD-b4-39o" collectionClass="NSMutableArray" id="Cdd-1S-qDx"/>
+                        <outletCollection property="eventViews" destination="ftP-es-8k1" collectionClass="NSMutableArray" id="5mm-YX-iIw"/>
+                        <segue destination="G4y-qM-8E5" kind="presentation" identifier="showInfo" id="KW0-rv-1j1"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
+                <tapGestureRecognizer id="wRQ-z1-bTN">
+                    <connections>
+                        <action selector="viewTapped:" destination="BYZ-38-t0r" id="ZUG-Kt-of8"/>
+                    </connections>
+                </tapGestureRecognizer>
+                <tapGestureRecognizer id="8br-fi-fK8">
+                    <connections>
+                        <action selector="viewTapped:" destination="BYZ-38-t0r" id="pmd-b0-sBD"/>
+                    </connections>
+                </tapGestureRecognizer>
+                <tapGestureRecognizer id="75y-y4-pdo">
+                    <connections>
+                        <action selector="viewTapped:" destination="BYZ-38-t0r" id="KMz-pz-eKM"/>
+                    </connections>
+                </tapGestureRecognizer>
+                <tapGestureRecognizer id="rUV-9o-56L">
+                    <connections>
+                        <action selector="viewTapped:" destination="BYZ-38-t0r" id="5Zc-mW-LCv"/>
+                    </connections>
+                </tapGestureRecognizer>
             </objects>
-            <point key="canvasLocation" x="40.579710144927539" y="26.785714285714285"/>
+            <point key="canvasLocation" x="188" y="27"/>
+        </scene>
+        <!--Web Detail View Controller-->
+        <scene sceneID="P3F-ny-kXt">
+            <objects>
+                <viewController id="G4y-qM-8E5" customClass="WebDetailViewController" customModule="Bout_Time" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="hLX-o6-9Id">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="webview_bar" translatesAutoresizingMaskIntoConstraints="NO" id="sdU-Yz-CTn">
+                                <rect key="frame" x="0.0" y="44" width="414" height="50"/>
+                                <gestureRecognizers/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="50" id="est-7K-lIY"/>
+                                </constraints>
+                            </imageView>
+                            <wkWebView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="l7g-zS-eYi">
+                                <rect key="frame" x="0.0" y="94" width="414" height="768"/>
+                                <color key="backgroundColor" red="0.36078431370000003" green="0.38823529410000002" blue="0.4039215686" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <wkWebViewConfiguration key="configuration" suppressesIncrementalRendering="YES">
+                                    <audiovisualMediaTypes key="mediaTypesRequiringUserActionForPlayback" none="YES"/>
+                                    <wkPreferences key="preferences"/>
+                                </wkWebViewConfiguration>
+                            </wkWebView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="HYq-cA-yZX">
+                                <rect key="frame" x="354" y="44" width="60" height="50"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="60" id="oKW-Zl-H5I"/>
+                                </constraints>
+                                <connections>
+                                    <action selector="barTapped:" destination="G4y-qM-8E5" eventType="touchUpInside" id="a0d-T4-hrt"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" red="0.050058804452419281" green="0.15704220533370972" blue="0.28629076480865479" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                        <constraints>
+                            <constraint firstItem="kaz-d7-it7" firstAttribute="bottom" secondItem="l7g-zS-eYi" secondAttribute="bottom" id="7nZ-mq-iyz"/>
+                            <constraint firstItem="l7g-zS-eYi" firstAttribute="leading" secondItem="kaz-d7-it7" secondAttribute="leading" id="BnD-od-Bui"/>
+                            <constraint firstItem="kaz-d7-it7" firstAttribute="trailing" secondItem="HYq-cA-yZX" secondAttribute="trailing" id="DUA-f6-ZLT"/>
+                            <constraint firstItem="sdU-Yz-CTn" firstAttribute="trailing" secondItem="kaz-d7-it7" secondAttribute="trailing" id="NLL-Lo-Y1F"/>
+                            <constraint firstItem="l7g-zS-eYi" firstAttribute="top" secondItem="sdU-Yz-CTn" secondAttribute="bottom" id="Xst-sv-eTg"/>
+                            <constraint firstItem="sdU-Yz-CTn" firstAttribute="leading" secondItem="kaz-d7-it7" secondAttribute="leading" id="bHg-i7-JMH"/>
+                            <constraint firstItem="kaz-d7-it7" firstAttribute="trailing" secondItem="l7g-zS-eYi" secondAttribute="trailing" id="d0E-YQ-SxK"/>
+                            <constraint firstItem="sdU-Yz-CTn" firstAttribute="top" secondItem="kaz-d7-it7" secondAttribute="top" id="oSi-sh-aFu"/>
+                            <constraint firstItem="HYq-cA-yZX" firstAttribute="top" secondItem="kaz-d7-it7" secondAttribute="top" id="qcO-Hs-Wke"/>
+                            <constraint firstItem="l7g-zS-eYi" firstAttribute="top" secondItem="HYq-cA-yZX" secondAttribute="bottom" id="xCL-4k-PLc"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="kaz-d7-it7"/>
+                    </view>
+                    <connections>
+                        <outlet property="webView" destination="l7g-zS-eYi" id="bEM-wL-Z8x"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="zuR-6R-pqi" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="964" y="27"/>
         </scene>
     </scenes>
     <resources>
@@ -302,5 +399,6 @@
         <image name="up_full_selected" width="158" height="457"/>
         <image name="up_half" width="158" height="229"/>
         <image name="up_half_selected" width="158" height="229"/>
+        <image name="webview_bar" width="1333" height="167"/>
     </resources>
 </document>

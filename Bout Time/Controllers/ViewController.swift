@@ -17,6 +17,7 @@ class ViewController: UIViewController {
     }
     
     @IBOutlet var eventLabels: [UILabel]!
+    @IBOutlet var eventViews: [UIView]!
     
     // Arrow / Shift Buttons
     @IBOutlet weak var firstPositionArrow: UIButton!
@@ -38,6 +39,12 @@ class ViewController: UIViewController {
     
     var gameManager: ChronoGameManager
     
+    // Timer
+    var gameTimer: Timer?
+    var timeRemaining: Int = 60
+    
+    var webURL: String = ""
+    
     // MARK: - Setup
     required init?(coder aDecoder: NSCoder) {
         gameManager = AviationChronoGame(numberOfRounds: 6)!
@@ -54,10 +61,28 @@ class ViewController: UIViewController {
         updateDisplay()
         displayGameOverState(false)
         updateNextRoundButton(hidden: true)
+        configureTimer()
+    }
+    
+    // MARK: - Countdown Timer
+    
+    func configureTimer() {
+        gameTimer = Timer.scheduledTimer(timeInterval: 1.0, target: self, selector: #selector(timerFired), userInfo: nil, repeats: true)
+        timeRemaining = 11 // 1 higher than time allowed otherwise the highest time never displays.. weird.
+        gameTimer?.fire()
+    }
+    
+    @objc func timerFired() {
+        // Called every 1s
+        timeRemaining -= 1
+        timerLabel.text = (timeRemaining < 10 ? "0:0\(timeRemaining)" : "0:\(timeRemaining)")
+        
+        if timeRemaining == 0 {
+            nextRound()
+        }
     }
     
     // MARK: - Display Methods
-    // Reconfigures the labels based on the gameManagers currentState
     func updateDisplay() {
         for (index, event) in gameManager.eventsInPlay.enumerated() {
             eventLabels[index].text = event.description
@@ -67,6 +92,7 @@ class ViewController: UIViewController {
     
     func updateNextRoundButton(hidden: Bool, withState state: NextRoundButtonSate = .success ) {
         nextRoundButton.isHidden = hidden
+        promptLabel.text = (hidden ? "Shake to complete" : "Tap events to learn more")
         nextRoundButton.setBackgroundImage(UIImage(named: state.rawValue), for: .normal)
     }
     
@@ -107,6 +133,7 @@ class ViewController: UIViewController {
         if gameManager.nextRound() {
             updateDisplay()
             updateNextRoundButton(hidden: true)
+            configureTimer()
         } else {
             displayGameOverState(true)
         }
@@ -116,16 +143,53 @@ class ViewController: UIViewController {
         gameManager = AviationChronoGame(numberOfRounds: 6)!
         setup()
     }
+    @IBAction func viewTapped(_ sender: UITapGestureRecognizer) {
+        if gameTimer?.isValid ?? false {
+            return // Stops the web view showing mid-game.
+        }
+        
+        guard let parentViewOfTapGesture = sender.view else {
+            return
+        }
+        
+        webURL = ""
+        switch parentViewOfTapGesture {
+        case eventViews[0]:
+            webURL = gameManager.eventsInPlay[0].infoURL
+        case eventViews[1]:
+            webURL = gameManager.eventsInPlay[1].infoURL
+        case eventViews[2]:
+            webURL = gameManager.eventsInPlay[2].infoURL
+        case eventViews[3]:
+            webURL = gameManager.eventsInPlay[3].infoURL
+        default:
+            break
+        }
+        
+        performSegue(withIdentifier: "showInfo", sender: nil)
+    }
+    
 
     // MARK: - Shakey Shake
     override func motionEnded(_ motion: UIEvent.EventSubtype, with event: UIEvent?) {
         guard motion == .motionShake else { return }
-        
+        nextRound()
+    }
+    
+    // MARK: - Next Round
+    func nextRound() {
+        gameTimer?.invalidate()
         guard nextRoundButton.isHidden else { return }
-
-        let result = gameManager.checkOrder()
         
+        let result = gameManager.checkOrder()
         updateNextRoundButton(hidden: false, withState: result ? .success : .failure)
+    }
+    
+    // MARK: - Show Info view
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if let destination = segue.destination as? WebDetailViewController {
+            destination.urlString = webURL
+        }
     }
 }
 
