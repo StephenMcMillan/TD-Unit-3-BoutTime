@@ -68,7 +68,7 @@ class ViewController: UIViewController {
     
     func configureTimer() {
         gameTimer = Timer.scheduledTimer(timeInterval: 1.0, target: self, selector: #selector(timerFired), userInfo: nil, repeats: true)
-        timeRemaining = 11 // 1 higher than time allowed otherwise the highest time never displays.. weird.
+        timeRemaining = 61 // 1 higher than time allowed otherwise the highest time never displays.. weird.
         gameTimer?.fire()
     }
     

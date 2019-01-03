@@ -10,8 +10,6 @@ import Foundation
 /*
     Steps to start:
     1) Populate 6 rounds of data with 4 events T=24
-    2)
-
 
     Manager will handle the current round, score etc.
 
@@ -77,7 +75,6 @@ class AviationChronoGame: ChronoGameManager {
         }
     }
     
-    
     func nextRound() -> Bool {
         currentRound += 1
     
@@ -109,7 +106,5 @@ class AviationChronoGame: ChronoGameManager {
         } else {
             return false
         }
-    }
-    
-    
+    } 
 }
